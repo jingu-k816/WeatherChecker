@@ -6,8 +6,6 @@ export default function CurrentWeather () {
   const {weatherData} = useWeather();
   const iconURL = `http://openweathermap.org/img/wn/${weatherData && weatherData.weather[0].icon}.png`
 
-  console.log("weatherdata in current weather component: ", weatherData && weatherData);
-
   return (
     <Card sx={{ marginTop: "2em", width: "15em", backgroundColor: "rgba(105, 105, 105, 0.4)", height: "17em", textAlign: "center"}}>
       { weatherData && 
