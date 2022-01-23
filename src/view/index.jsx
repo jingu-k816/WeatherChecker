@@ -3,6 +3,7 @@ import useWeather from "../controller/hook";
 import CurrentWeather from "./CurrentWeather";
 import SearchBar from "./SearchBar";
 import Error from "./Error";
+import ForecastContainer from "./ForecastContainer";
 
 const Root = styled("div")(() => ({
   margin: "0 auto",
@@ -16,10 +17,11 @@ export default function WeatherChecker () {
 
   return (
     <Root>
-      <Typography variant="h3" sx={{ marginTop: "1em", textAlign: "center"}}>Weather Tracker</Typography>
+      <Typography variant="h3" sx={{ marginTop: "0.8em", textAlign: "center" }}>Weather Tracker</Typography>
       <SearchBar />
       {weatherData && <CurrentWeather />}
       {error && <Error />}
+      {forecastData && <ForecastContainer />}
     </Root>
   );
 };
