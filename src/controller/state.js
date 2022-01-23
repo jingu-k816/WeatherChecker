@@ -15,3 +15,8 @@ export const errorState = atom({
   default: null
 });
 
+export const filteredForecastDataState = atom({
+  key: "filteredForecastDataState",
+  default: null
+});
+

@@ -1,10 +1,12 @@
 import { useRecoilState } from "recoil";
-import { weatherDataState, forecastDataState, errorState } from "./state";
+import { weatherDataState, forecastDataState, errorState, filteredForecastDataState } from "./state";
 import weatherRepository from "../data/repository";
+import getEachDayForFiveDaysForecast from "../data/helpers";
 
 const useWeather = () => {  
   const [weatherData, setWeatherData] = useRecoilState(weatherDataState);
   const [forecastData, setForecastData] = useRecoilState(forecastDataState);
+  const [filteredForecastData, setFilteredForecastData] = useRecoilState(filteredForecastDataState);
   const [error, setError] = useRecoilState(errorState);
 
   const fetchWeather = async (city) => {
@@ -29,12 +31,18 @@ const useWeather = () => {
     }
   };
 
+  const fetchFilteredForecast = () => {
+    setFilteredForecastData(getEachDayForFiveDaysForecast(forecastData.list));
+  }
+
   return {
     weatherData,
     forecastData,
+    filteredForecastData,
     error,
     fetchWeather,
     fetchForecast,
+    fetchFilteredForecast,
   };
 };
 

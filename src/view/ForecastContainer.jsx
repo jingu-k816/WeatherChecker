@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+
+import { useEffect } from "react";
 import useWeather from "../controller/hook";
 import Forecast from "./Forecast";
 import { styled } from "@mui/material";
-import getEachDayForFiveDaysForecast from "../data/helpers";
 
 const Root = styled("div")(({theme}) => ({
   display: "flex",
@@ -13,16 +13,15 @@ const Root = styled("div")(({theme}) => ({
   },
 }));
 export default function ForecastContainer() {
-  const [forecast, setForecast] = useState();
-  const { forecastData } = useWeather();
+  const { forecastData, filteredForecastData, fetchFilteredForecast } = useWeather();
 
   useEffect(() => {
-    setForecast(getEachDayForFiveDaysForecast(forecastData.list));
+    fetchFilteredForecast();
   },[forecastData]);
 
   return (
     <Root>    
-      {forecast && forecast.map((dayForecast, idx) => {
+      {filteredForecastData && filteredForecastData.map((dayForecast, idx) => {
         return (
           <Forecast key={idx} forecast={dayForecast}/>
         );
