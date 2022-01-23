@@ -37,7 +37,6 @@ const getVariousResult = {
         })
       );
     });
-    console.log(result)
     return result;
   },
 
