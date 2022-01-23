@@ -10,7 +10,7 @@ const weatherRepository = {
       })
       return response;
     } catch (e) {
-      throw e;
+      return e;
     }
   },
   retrieveCurrentWeather: async (city) => {
@@ -20,7 +20,7 @@ const weatherRepository = {
       })
       return response;
     } catch (e) {
-      throw e;
+      return e;
     }
   }
 };
