@@ -4,7 +4,7 @@ export const getEachDayForFiveDaysForecast = (forecastData) => {
   let index = 0;
 
   for (let i = 0; i < forecastData.length; i+=8) {
-    const date = forecastData[i+1].dt_txt.split(" ")[0];
+    const date = new Date(forecastData[i+1].dt_txt);
     result.push({
       date,
       icon: forecastData[i].weather[0].icon,
