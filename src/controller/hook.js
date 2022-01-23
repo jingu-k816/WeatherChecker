@@ -11,6 +11,7 @@ const useWeather = () => {
     const response = await weatherRepository.retrieveCurrentWeather(city);
     if (response.status !== 200) {
       setError(response.message);
+      setWeatherData(null);
     } else {
       setWeatherData(response.data);
       setError("");
@@ -21,6 +22,7 @@ const useWeather = () => {
     const response = await weatherRepository.retrieveWeatherForecast(city);
     if (response.status !== 200) {
       setError(response.message);
+      setForecastData(null);
     } else {
       setForecastData(response.data);
       setError("");
