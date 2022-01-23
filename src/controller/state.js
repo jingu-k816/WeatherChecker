@@ -10,3 +10,8 @@ export const forecastDataState = atom({
   default: null
 });
 
+export const errorState = atom({
+  key: "errorState",
+  default: null
+});
+
