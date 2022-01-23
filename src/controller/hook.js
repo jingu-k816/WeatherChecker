@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { weatherDataState, forecastDataState } from "./state";
 import weatherRepository from "../data/repository";
 
 const useWeather = () => {  
-  const [weatherData, setWeatherData] = useState();
-  const [forecastData, setForecastData] = useState();
+  const [weatherData, setWeatherData] = useRecoilState(weatherDataState);
+  const [forecastData, setForecastData] = useRecoilState(forecastDataState);
 
   const fetchWeather = async (city) => {
     const response = await weatherRepository.retrieveCurrentWeather(city);
