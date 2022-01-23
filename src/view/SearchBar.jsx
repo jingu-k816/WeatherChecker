@@ -30,6 +30,11 @@ export default function SearchBar () {
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
         onKeyDown={(e) => (e.key === "Enter") ? handleSubmit(e) : null}
+        InputProps={{
+          style: {
+            fontSize: "25px"
+          }
+        }}  
       />
       <Button
         onClick={handleSubmit}
