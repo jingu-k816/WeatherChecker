@@ -9,6 +9,7 @@ export const getEachDayForFiveDaysForecast = (forecastData) => {
       icon: forecastData[i].weather[0].icon,
       temp: forecastData[i].main.temp,
       nightTemp: getVariousResult.getNightTemp(forecastData)[index] ? getVariousResult.getNightTemp(forecastData)[index].temp : null,
+      humidity: getVariousResult.getHumidity(forecastData)[index] ? getVariousResult.getHumidity(forecastData)[index].humidity : null,
     });
     index++;
   };
@@ -27,7 +28,8 @@ const getVariousResult = {
         result.push({
           date,
           hour: date.toString().split(" ")[4].split(":")[0],
-          temp: dayForecast.main.temp
+          temp: dayForecast.main.temp,
+          humidity: dayForecast.main.humidity
         })
       );
     });
@@ -45,24 +47,33 @@ const getVariousResult = {
     const result = [];
     
     for (let i = 0; i < nightTimeResult.length; i+= 3) {
-      // Because time goes on and sometimes there will only be 2 temperatures available form the api,
-      // eg.) date: 2022-01-23 21:00's data would be collected from the axios call but on the last day's 
-      //      2022-01-28 21:00's data may be missing hence there will only be 00 and 03's information.
-
-      // using if condition, make sure the for loop runs and checks for the conditions.
-      if (nightTimeResult[i] && nightTimeResult[i+1] && nightTimeResult[i+2]) {
+      // Run for loop skipping every 2nd and 3rd data in a day because there's only 3 night time slots per day and they will be calculated.
+      // Using an if statement, make sure the index is still within the size of an array.
+      if (nightTimeResult[i]) {
         result.push({
           temp: ((nightTimeResult[i].temp + nightTimeResult[i + 1].temp + nightTimeResult[i + 2].temp) / 3 ).toFixed(2)
         });
-      } else if (nightTimeResult[i] && nightTimeResult[i+1]) {
-        result.push({
-          temp: ((nightTimeResult[i].temp + nightTimeResult[i + 1].temp) / 3 ).toFixed(2)
-        });
-      }      
+      } 
     }
       
     return result;
   },
+
+  getHumidity: (data) => {
+    const fiveDaysResult = getVariousResult.getEachDay(data);
+    const result = [];
+    
+    for (let i = 0; i < fiveDaysResult.length; i +=8) {
+      if (fiveDaysResult[i]) {
+        result.push({
+          humidity: (
+            (fiveDaysResult[i].humidity + fiveDaysResult[i + 1].humidity + fiveDaysResult[i + 2].humidity + fiveDaysResult[i + 3].humidity + 
+              fiveDaysResult[i + 4].humidity + fiveDaysResult[i + 5].humidity + fiveDaysResult[i + 6].humidity + fiveDaysResult[i + 7].humidity) / 8).toFixed(2)
+        })
+      }
+    }
+    return result;
+  }
 }
 
 export default getEachDayForFiveDaysForecast;
