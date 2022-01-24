@@ -117,7 +117,62 @@ const getVariousResult = {
     }
     return result;
   },
-
 }
 
-export default getEachDayForFiveDaysForecast;
+const getForecastStats = {
+  getMinimumTemp: (forecast) => {
+    let indexOfMax = 0;
+    for (let i = 0; i < forecast.length; i++) {
+      if (forecast[i].temp < forecast[indexOfMax].temp) {
+        indexOfMax = i;
+      }
+    }
+    return forecast[indexOfMax].temp;
+  },
+  
+  getMaximumTemp: (forecast) => {
+    let indexOfMax = 0;
+    for (let i = 0; i < forecast.length; i++) {
+      if (forecast[i].temp > forecast[indexOfMax].temp) {
+        indexOfMax = i;
+      }
+    }
+    return forecast[indexOfMax].temp;
+  },
+  
+  getMeanTemp: (forecast) => {
+    let result = 0;
+    const length = forecast.length;
+
+    for (let i = 0; i < length; i++) {
+      result += forecast[i].temp
+    }
+
+    result = result/(length);
+
+    return result;
+  },
+
+  getModeTemp: (forecast) => {
+    const recurrTempsInObj = {};
+    let mostRecurrTemp = forecast[0].temp;
+    let count = 1;
+
+    for (let i = 0; i < forecast.length; i++) {
+      if (!recurrTempsInObj[forecast[i].temp]) {
+        recurrTempsInObj[forecast[i].temp] = 1
+      } else {
+        recurrTempsInObj[forecast[i].temp]++;
+      }
+
+      if (recurrTempsInObj[forecast[i].temp] > count) {
+        mostRecurrTemp = forecast[i].temp;
+        count = recurrTempsInObj[forecast[i].temp];
+      }
+    }
+
+    return count > 1 ? mostRecurrTemp : "None";
+  }
+}
+
+export default getForecastStats;
