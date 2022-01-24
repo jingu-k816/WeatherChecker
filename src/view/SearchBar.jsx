@@ -3,13 +3,16 @@ import { Button, TextField, styled } from "@mui/material";
 import {Search} from "@mui/icons-material";
 import useWeather from "../controller/hook";
 
-const Root = styled("div")(() => ({
+const Root = styled("div")(({theme}) => ({
   display: "flex",
   flexDirection: "row",
   marginTop: "3em",
   marginLeft: "auto",
   marginRight: "auto",
-  
+  [theme.breakpoints.down("lg")]: {
+    marginLeft: "3em",
+    marginRight: "3em"
+  },
 }));
 
 export default function SearchBar () {

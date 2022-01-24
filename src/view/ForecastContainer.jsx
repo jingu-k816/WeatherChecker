@@ -7,9 +7,8 @@ import { styled } from "@mui/material";
 const Root = styled("div")(({theme}) => ({
   display: "flex",
   flexDirection: "row",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     flexDirection: "column",
-    width: "100%"
   },
 }));
 export default function ForecastContainer() {

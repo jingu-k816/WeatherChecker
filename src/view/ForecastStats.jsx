@@ -3,7 +3,8 @@ import useWeather from "../controller/hook";
 import getForecastStats from "../data/helpers";
 
 const Root = styled("div")(() => ({
-  marginLeft: "5em"
+  marginLeft: "5em",
+  marginRight: "3em"
 }))
 
 export default function ForecastStats () {

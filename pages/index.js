@@ -4,6 +4,7 @@ import { RecoilRoot } from "recoil";
 
 const Root = styled("div")(() => ({
   width: "100%",
+  display: "flex"
 }));
 
 export default function Home() {

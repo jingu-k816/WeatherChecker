@@ -5,7 +5,7 @@ import useWeather from "../controller/hook";
 const Root = styled("div")(({theme}) => ({
   [theme.breakpoints.down("lg")]: {
     marginBottom: "1em",
-    
+    marginLeft: "3em",
   },
 }));
 
