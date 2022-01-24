@@ -1,5 +1,5 @@
 
-# Weather-App
+# Weather Checker
 
 This is a weather app built with React, Material-UI, Next JS and Recoil.js for State Management System. 
 
@@ -11,6 +11,9 @@ The app also shows the weather forecast stats of minimum, maximum, mode and mean
 
 The project fetched weather data and forecast using [OpenWeatherMap](https://openweathermap.org/) API 
 
+## Deployment
+
+This app is deployed and hosted using Netlify. [WeatherChecker](https://weather-checker-jk.netlify.app/)
 ## Demo
 
 - Demo
