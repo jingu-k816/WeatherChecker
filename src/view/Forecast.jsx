@@ -10,7 +10,7 @@ const Root = styled("div")(({theme}) => ({
   [theme.breakpoints.down("lg")]: {
     width: "100%",
     height: "20em",
-    marginBottom: 0,
+    marginBottom: "-1em",
   },
 
 }));
@@ -22,7 +22,7 @@ export default function Forecast({forecast}) {
 
   return (
     <Root>
-      <Card sx={(theme) => ({  backgroundColor: "rgba(128, 128, 128, 0.9)", [theme.breakpoints.down("lg")]: { backgroundColor: "rgba(255, 255, 255, 0)"} })}>
+      <Card sx={(theme) => ({  backgroundColor: "rgba(128, 128, 128, 0.9)", [theme.breakpoints.down("lg")]: { backgroundColor: "rgba(255, 255, 255, 0.1)", border: "none", boxShadow: "none", width: "1000px"}})}>
         { forecast && 
           <CardContent >
             <Typography variant="h5"><b>{date.toLocaleDateString('en-US', { month: "short", day: 'numeric' })}</b></Typography>
