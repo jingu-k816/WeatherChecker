@@ -7,7 +7,7 @@ const Root = styled("div")(({theme}) => ({
   width: "15em", 
   height: "17em", 
   textAlign: "center",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     width: "100%",
     height: "20em",
     marginBottom: 0,
@@ -22,7 +22,7 @@ export default function Forecast({forecast}) {
 
   return (
     <Root>
-      <Card sx={(theme) => ({  backgroundColor: "rgba(128, 128, 128, 0.9)", [theme.breakpoints.down("md")]: { backgroundColor: "rgba(255, 255, 255, 0)"} })}>
+      <Card sx={(theme) => ({  backgroundColor: "rgba(128, 128, 128, 0.9)", [theme.breakpoints.down("lg")]: { backgroundColor: "rgba(255, 255, 255, 0)"} })}>
         { forecast && 
           <CardContent >
             <Typography variant="h5"><b>{date.toLocaleDateString('en-US', { month: "short", day: 'numeric' })}</b></Typography>
@@ -33,11 +33,11 @@ export default function Forecast({forecast}) {
               height={100}
             />
             <div>
-              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("md")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Morning Temperature: {morningTemp} &#8451;</Typography>
-              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("md")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Day Temperature: {dayTemp} &#8451;</Typography>
-              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("md")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Night Temperature: {nightTemp} &#8451;</Typography>
-              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("md")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Temperature: {temp} &#8451;</Typography>
-              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("md")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Humidity: {humidity}%</Typography>
+              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("lg")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Morning Temperature: {morningTemp} &#8451;</Typography>
+              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("lg")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Day Temperature: {dayTemp} &#8451;</Typography>
+              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("lg")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Night Temperature: {nightTemp} &#8451;</Typography>
+              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("lg")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Temperature: {temp} &#8451;</Typography>
+              <Typography sx={(theme) => ({ fontSize: "0.8rem", [theme.breakpoints.down("lg")]: { fontSize: "1.4rem", color: "#f2f2f2", marginBottom: "-5px"}})}>Humidity: {humidity}%</Typography>
             </div>
           </CardContent>
         }

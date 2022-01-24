@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { weatherDataState, forecastDataState, errorState, filteredForecastDataState } from "./state";
 import weatherRepository from "../data/repository";
-import getEachDayForFiveDaysForecast from "../data/helpers";
+import {getEachDayForFiveDaysForecast} from "../data/helpers";
 
 const useWeather = () => {  
   const [weatherData, setWeatherData] = useRecoilState(weatherDataState);
