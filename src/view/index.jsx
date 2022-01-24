@@ -4,12 +4,20 @@ import CurrentWeather from "./CurrentWeather";
 import SearchBar from "./SearchBar";
 import Error from "./Error";
 import ForecastContainer from "./ForecastContainer";
+import ForecastStats from "./ForecastStats";
 
 const Root = styled("div")(() => ({
   margin: "0 auto",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+}));
+
+const MiddleWrapper = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-evenly",
+  marginTop: "2em",
 }));
 
 export default function WeatherChecker () {  
@@ -19,7 +27,10 @@ export default function WeatherChecker () {
     <Root>
       <Typography variant="h3" sx={{ marginTop: "0.8em", textAlign: "center" }}>Weather Tracker</Typography>
       <SearchBar />
-      {weatherData && <CurrentWeather />}
+      <MiddleWrapper>
+        {weatherData && <CurrentWeather />}
+        {forecastData && <ForecastStats />}
+      </MiddleWrapper>
       {error && <Error />}
       {forecastData && <ForecastContainer />}
     </Root>
