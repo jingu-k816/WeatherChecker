@@ -22,15 +22,19 @@ The project fetched weather data and forecast using [OpenWeatherMap](https://ope
 
 ## Screenshots
 1. Main Page
+
 ![main page](https://github.com/jingu-k816/WeatherChecker/blob/master/public/weather_main_page.png)
 
 2. Main Page after search
+
 ![after search](https://github.com/jingu-k816/WeatherChecker/blob/master/public/weather_after_search.png)
 
 3. Error Page when invalid city input
+
 ![error page](https://github.com/jingu-k816/WeatherChecker/blob/master/public/weather_error_page.png)
 
 4. Mobile Responsive
+
 ![responsive](https://github.com/jingu-k816/WeatherChecker/blob/master/public/weather_mobile_responsive.png)
 
 ## Set Up
